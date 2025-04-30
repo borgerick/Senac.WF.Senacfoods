@@ -29,32 +29,20 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            txtTextoCardapio = new TextBox();
             btnVoltar = new Button();
+            txtTextoCardapio = new TextBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(255, 128, 0);
+            panel1.BackColor = Color.Sienna;
             panel1.Controls.Add(btnVoltar);
             panel1.Controls.Add(txtTextoCardapio);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(896, 77);
             panel1.TabIndex = 1;
-            // 
-            // txtTextoCardapio
-            // 
-            txtTextoCardapio.BackColor = Color.FromArgb(255, 128, 0);
-            txtTextoCardapio.BorderStyle = BorderStyle.None;
-            txtTextoCardapio.Font = new Font("Segoe UI", 19F);
-            txtTextoCardapio.ForeColor = Color.White;
-            txtTextoCardapio.Location = new Point(12, 12);
-            txtTextoCardapio.Name = "txtTextoCardapio";
-            txtTextoCardapio.Size = new Size(227, 51);
-            txtTextoCardapio.TabIndex = 2;
-            txtTextoCardapio.Text = "CARDAPIO";
             // 
             // btnVoltar
             // 
@@ -66,6 +54,18 @@
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
             btnVoltar.Click += btnVoltar_Click;
+            // 
+            // txtTextoCardapio
+            // 
+            txtTextoCardapio.BackColor = Color.Sienna;
+            txtTextoCardapio.BorderStyle = BorderStyle.None;
+            txtTextoCardapio.Font = new Font("Segoe UI", 19F);
+            txtTextoCardapio.ForeColor = Color.White;
+            txtTextoCardapio.Location = new Point(12, 12);
+            txtTextoCardapio.Name = "txtTextoCardapio";
+            txtTextoCardapio.Size = new Size(227, 51);
+            txtTextoCardapio.TabIndex = 2;
+            txtTextoCardapio.Text = "CARDAPIO";
             // 
             // FrmCardapio
             // 

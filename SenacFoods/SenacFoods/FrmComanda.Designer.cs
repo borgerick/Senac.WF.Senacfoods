@@ -28,12 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FrmComanda";
+            panel1 = new Panel();
+            btnVoltar = new Button();
+            txtTextoCardapio = new TextBox();
+            panel1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Green;
+            panel1.Controls.Add(btnVoltar);
+            panel1.Controls.Add(txtTextoCardapio);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(896, 77);
+            panel1.TabIndex = 2;
+            // 
+            // btnVoltar
+            // 
+            btnVoltar.FlatAppearance.BorderSize = 0;
+            btnVoltar.Location = new Point(759, 23);
+            btnVoltar.Name = "btnVoltar";
+            btnVoltar.Size = new Size(112, 34);
+            btnVoltar.TabIndex = 2;
+            btnVoltar.Text = "Voltar";
+            btnVoltar.UseVisualStyleBackColor = true;
+            btnVoltar.Click += btnVoltar_Click;
+            // 
+            // txtTextoCardapio
+            // 
+            txtTextoCardapio.BackColor = Color.Green;
+            txtTextoCardapio.BorderStyle = BorderStyle.None;
+            txtTextoCardapio.Font = new Font("Segoe UI", 19F);
+            txtTextoCardapio.ForeColor = Color.White;
+            txtTextoCardapio.Location = new Point(12, 12);
+            txtTextoCardapio.Name = "txtTextoCardapio";
+            txtTextoCardapio.Size = new Size(227, 51);
+            txtTextoCardapio.TabIndex = 2;
+            txtTextoCardapio.Text = "COMANDA";
+            // 
+            // FrmComanda
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(894, 447);
+            Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "FrmComanda";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FrmComanda";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel1;
+        private Button btnVoltar;
+        private TextBox txtTextoCardapio;
     }
 }
