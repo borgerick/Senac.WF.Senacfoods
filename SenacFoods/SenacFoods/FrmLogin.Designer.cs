@@ -29,36 +29,67 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            btnFechar = new Button();
             btnEntrar = new Button();
             txtSenha = new TextBox();
             txtLogin = new TextBox();
             label2 = new Label();
             label1 = new Label();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(224, 224, 224);
+            panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(300, 619);
             panel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(0, 136);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(300, 340);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
             // panel2
             // 
+            panel2.Controls.Add(btnFechar);
             panel2.Controls.Add(btnEntrar);
             panel2.Controls.Add(txtSenha);
             panel2.Controls.Add(txtLogin);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(337, 0);
+            panel2.Location = new Point(299, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(652, 619);
+            panel2.Size = new Size(690, 619);
             panel2.TabIndex = 1;
+            // 
+            // btnFechar
+            // 
+            btnFechar.BackColor = Color.Transparent;
+            btnFechar.FlatAppearance.BorderColor = Color.Black;
+            btnFechar.FlatAppearance.BorderSize = 0;
+            btnFechar.FlatStyle = FlatStyle.Flat;
+            btnFechar.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFechar.ForeColor = SystemColors.ControlLightLight;
+            btnFechar.Location = new Point(630, 12);
+            btnFechar.Name = "btnFechar";
+            btnFechar.Size = new Size(48, 48);
+            btnFechar.TabIndex = 2;
+            btnFechar.Text = "X";
+            btnFechar.UseVisualStyleBackColor = false;
+            btnFechar.Click += btnFechar_Click;
             // 
             // btnEntrar
             // 
@@ -69,12 +100,13 @@
             btnEntrar.FlatStyle = FlatStyle.Flat;
             btnEntrar.Font = new Font("Segoe UI", 20F);
             btnEntrar.ForeColor = SystemColors.ButtonFace;
-            btnEntrar.Location = new Point(120, 401);
+            btnEntrar.Location = new Point(115, 379);
             btnEntrar.Name = "btnEntrar";
             btnEntrar.Size = new Size(360, 61);
             btnEntrar.TabIndex = 2;
             btnEntrar.Text = "Entrar";
             btnEntrar.UseVisualStyleBackColor = false;
+            btnEntrar.Click += btnEntrar_Click;
             // 
             // txtSenha
             // 
@@ -134,7 +166,8 @@
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
-            Load += this.FrmLogin_Load;
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -149,5 +182,7 @@
         private Label label2;
         private Label label1;
         private Button btnEntrar;
+        private Button btnFechar;
+        private PictureBox pictureBox1;
     }
 }
