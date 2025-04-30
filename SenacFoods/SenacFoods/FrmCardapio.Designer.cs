@@ -28,18 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panel1 = new Panel();
+            txtTextoCardapio = new TextBox();
+            btnVoltar = new Button();
+            panel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(255, 128, 0);
+            panel1.Controls.Add(btnVoltar);
+            panel1.Controls.Add(txtTextoCardapio);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(896, 77);
+            panel1.TabIndex = 1;
+            // 
+            // txtTextoCardapio
+            // 
+            txtTextoCardapio.BackColor = Color.FromArgb(255, 128, 0);
+            txtTextoCardapio.BorderStyle = BorderStyle.None;
+            txtTextoCardapio.Font = new Font("Segoe UI", 19F);
+            txtTextoCardapio.ForeColor = Color.White;
+            txtTextoCardapio.Location = new Point(12, 12);
+            txtTextoCardapio.Name = "txtTextoCardapio";
+            txtTextoCardapio.Size = new Size(227, 51);
+            txtTextoCardapio.TabIndex = 2;
+            txtTextoCardapio.Text = "CARDAPIO";
+            // 
+            // btnVoltar
+            // 
+            btnVoltar.FlatAppearance.BorderSize = 0;
+            btnVoltar.Location = new Point(759, 23);
+            btnVoltar.Name = "btnVoltar";
+            btnVoltar.Size = new Size(112, 34);
+            btnVoltar.TabIndex = 2;
+            btnVoltar.Text = "Voltar";
+            btnVoltar.UseVisualStyleBackColor = true;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // FrmCardapio
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            AutoValidate = AutoValidate.EnableAllowFocusChange;
+            ClientSize = new Size(894, 447);
+            Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FrmCardapio";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrnCardapio";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel1;
+        private TextBox txtTextoCardapio;
+        private Button btnVoltar;
     }
 }
