@@ -22,7 +22,7 @@ namespace SenacFoods
             //fechar a tela principal
             Close();
             //cri uma intancia de tela de login
-            var frmPrincipal = new FrmPrincipal();
+            var frmPrincipal = new FrmPrincipal("","");
             //exibe a tela de login
             frmPrincipal.Show();
         }
