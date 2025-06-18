@@ -22,15 +22,29 @@ namespace SenacFoods
         }
 
         private bool ValidarLogin(string nome, string senha)
-        {       //SE nome é igual a admin e senha é igual a 123
-            if (nome == "admin" && senha == "123")
+        {
+            bool usuarioValido = false;
+            //conecta com o banco de dados
+            using (var banco = new ComandaDBContext())
+            {
+                //consultar a tabela usuario
+                var usuario = banco
+                                .Usuarios
+                                .FirstOrDefault(u => u.Nome == nome && u.Senha == senha);
+                if (usuario is not null)
+                    usuarioValido = true; //se o usuario for diferente de nulo, o usuario é valido
+
+            }
+
+            //SE nome é igual a admin e senha é igual a 123
+            if (usuarioValido)
             {   //Retorna Verdadeiro
-                return false;
+                return true;
             }
             else
             { //Exibe uma mensagem de erro
             MessageBox.Show("Login ou senha inválidos");
-                return true;
+                return false;
             }
         }
 
