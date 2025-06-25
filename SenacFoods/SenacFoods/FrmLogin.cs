@@ -2,6 +2,7 @@ namespace SenacFoods
 {
     public partial class FrmLogin : Form
     {
+        string _nomeUsuario;
         public FrmLogin()
         {
             InitializeComponent();
@@ -15,7 +16,7 @@ namespace SenacFoods
                 //oculta tela de login
                 this.Hide();
                 //criar uma instancia de FrmPrincipal
-                var frmPrincipal = new FrmPrincipal(txtLogin.Text, txtSenha.Text);
+                var frmPrincipal = new FrmPrincipal(_nomeUsuario, txtSenha.Text);
                 //exibe a tela principal
                 frmPrincipal.Show();
             }
@@ -30,10 +31,10 @@ namespace SenacFoods
                 //consultar a tabela usuario
                 var usuario = banco
                                 .Usuarios
-                                .FirstOrDefault(u => u.Nome == nome && u.Senha == senha);
+                                .FirstOrDefault(u => u.Email == nome.ToLower() && u.Senha == senha);
                 if (usuario is not null)
                     usuarioValido = true; //se o usuario for diferente de nulo, o usuario é valido
-
+                _nomeUsuario = usuario.Nome;
             }
 
             //SE nome é igual a admin e senha é igual a 123

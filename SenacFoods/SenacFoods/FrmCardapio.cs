@@ -22,9 +22,27 @@ namespace SenacFoods
             //fechar a tela principal
             Close();
             //cri uma intancia de tela de login
-            var frmPrincipal = new FrmPrincipal("","");
+            var frmPrincipal = new FrmPrincipal("", "");
             //exibe a tela de login
             frmPrincipal.Show();
+        }
+
+        private void FrmCardapio_Load(object sender, EventArgs e)
+        {
+            BuscarCardapio();
+        }
+
+        private void BuscarCardapio()
+        {
+            //conectar ao banco de dados
+            using (var bd = new ComandaDBContext())
+            {
+                //consulta a tabela CardapioItem
+                var cardapio = bd.CardapioItens.ToList();
+                //popular o grid com a tabela consultada
+                dataGridView1.DataSource = cardapio;
+            }
+
         }
     }
 }
