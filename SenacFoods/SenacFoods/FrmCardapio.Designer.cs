@@ -37,6 +37,7 @@
             dataGridView1 = new DataGridView();
             BotaoEditar = new Button();
             BotaoExcluir = new Button();
+            button1 = new Button();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -59,7 +60,7 @@
             Pesquisar.AutoSize = true;
             Pesquisar.BackColor = Color.White;
             Pesquisar.ForeColor = Color.Black;
-            Pesquisar.Location = new Point(278, 29);
+            Pesquisar.Location = new Point(245, 28);
             Pesquisar.Name = "Pesquisar";
             Pesquisar.Size = new Size(86, 25);
             Pesquisar.TabIndex = 5;
@@ -90,28 +91,29 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(273, 26);
+            textBox1.Location = new Point(241, 26);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(384, 31);
+            textBox1.Size = new Size(363, 31);
             textBox1.TabIndex = 6;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(dataGridView1);
             groupBox1.Location = new Point(23, 83);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(848, 312);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
+            groupBox1.Text = "Cardapio";
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(15, 21);
+            dataGridView1.Location = new Point(15, 67);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(816, 285);
+            dataGridView1.Size = new Size(816, 239);
             dataGridView1.TabIndex = 0;
             // 
             // BotaoEditar
@@ -131,6 +133,17 @@
             BotaoExcluir.TabIndex = 4;
             BotaoExcluir.Text = "X Excluir";
             BotaoExcluir.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Sienna;
+            button1.ForeColor = Color.BlanchedAlmond;
+            button1.Location = new Point(15, 27);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 34);
+            button1.TabIndex = 5;
+            button1.Text = "+Item";
+            button1.UseVisualStyleBackColor = false;
             // 
             // FrmCardapio
             // 
@@ -165,5 +178,6 @@
         private Button BotaoExcluir;
         private Label Pesquisar;
         private TextBox textBox1;
+        private Button button1;
     }
 }

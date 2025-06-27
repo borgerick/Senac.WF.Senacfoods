@@ -38,9 +38,9 @@ namespace SenacFoods
             using (var bd = new ComandaDBContext())
             {
                 //consulta a tabela CardapioItem
-                var cardapio = bd.CardapioItens.ToList();
+                var cardapios = bd.CardapioItens.ToList();
                 //popular o grid com a tabela consultada
-                dataGridView1.DataSource = cardapio;
+                dataGridView1.DataSource = cardapios;
             }
 
         }
