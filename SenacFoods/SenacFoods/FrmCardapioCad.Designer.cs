@@ -82,7 +82,7 @@
             btnCancelar.BackColor = Color.FromArgb(255, 128, 128);
             btnCancelar.Location = new Point(617, 195);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(203, 34);
+            btnCancelar.Size = new Size(203, 69);
             btnCancelar.TabIndex = 8;
             btnCancelar.Text = "X Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -90,9 +90,9 @@
             // btnSalvar
             // 
             btnSalvar.BackColor = Color.FromArgb(128, 255, 128);
-            btnSalvar.Location = new Point(617, 136);
+            btnSalvar.Location = new Point(617, 101);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(203, 34);
+            btnSalvar.Size = new Size(203, 69);
             btnSalvar.TabIndex = 7;
             btnSalvar.Text = "# Salvar";
             btnSalvar.UseVisualStyleBackColor = false;

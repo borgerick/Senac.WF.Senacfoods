@@ -11,8 +11,8 @@ using SenacFoods;
 namespace SenacFoods.Migrations
 {
     [DbContext(typeof(ComandaDBContext))]
-    [Migration("20250618004234_V1")]
-    partial class V1
+    [Migration("20250627230454_v1")]
+    partial class v1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

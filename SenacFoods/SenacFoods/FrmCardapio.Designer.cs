@@ -34,10 +34,10 @@
             txtTextoCardapio = new TextBox();
             textBox1 = new TextBox();
             groupBox1 = new GroupBox();
+            button1 = new Button();
             dataGridView1 = new DataGridView();
             BotaoEditar = new Button();
             BotaoExcluir = new Button();
-            button1 = new Button();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -107,6 +107,18 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Cardapio";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Sienna;
+            button1.ForeColor = Color.BlanchedAlmond;
+            button1.Location = new Point(15, 27);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 34);
+            button1.TabIndex = 5;
+            button1.Text = "+Item";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -133,17 +145,6 @@
             BotaoExcluir.TabIndex = 4;
             BotaoExcluir.Text = "X Excluir";
             BotaoExcluir.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Sienna;
-            button1.ForeColor = Color.BlanchedAlmond;
-            button1.Location = new Point(15, 27);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 5;
-            button1.Text = "+Item";
-            button1.UseVisualStyleBackColor = false;
             // 
             // FrmCardapio
             // 
