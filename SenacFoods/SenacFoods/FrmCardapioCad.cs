@@ -46,11 +46,20 @@ namespace SenacFoods
                 banco.SaveChanges();
             }
             MessageBox.Show("Cardápio salvo com sucesso!",
-                "Sucesso", 
-                MessageBoxButtons.OK, 
+                "Sucesso",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
             this.Close();
         }
 
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -64,6 +64,7 @@
             btnVoltar.TabIndex = 2;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // txtTextoCardapio
             // 
@@ -86,6 +87,7 @@
             btnCancelar.TabIndex = 8;
             btnCancelar.Text = "X Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnSalvar
             // 

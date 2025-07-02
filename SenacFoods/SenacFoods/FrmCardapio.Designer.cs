@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            Pesquisar = new Label();
             btnVoltar = new Button();
             txtTextoCardapio = new TextBox();
-            textBox1 = new TextBox();
+            txtPesquisa = new TextBox();
             groupBox1 = new GroupBox();
-            button1 = new Button();
+            btnAdicionar = new Button();
             dataGridView1 = new DataGridView();
             BotaoEditar = new Button();
             BotaoExcluir = new Button();
@@ -46,25 +45,13 @@
             // panel1
             // 
             panel1.BackColor = Color.Sienna;
-            panel1.Controls.Add(Pesquisar);
             panel1.Controls.Add(btnVoltar);
             panel1.Controls.Add(txtTextoCardapio);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txtPesquisa);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(896, 77);
             panel1.TabIndex = 1;
-            // 
-            // Pesquisar
-            // 
-            Pesquisar.AutoSize = true;
-            Pesquisar.BackColor = Color.White;
-            Pesquisar.ForeColor = Color.Black;
-            Pesquisar.Location = new Point(245, 28);
-            Pesquisar.Name = "Pesquisar";
-            Pesquisar.Size = new Size(86, 25);
-            Pesquisar.TabIndex = 5;
-            Pesquisar.Text = "Pesquisar";
             // 
             // btnVoltar
             // 
@@ -89,16 +76,17 @@
             txtTextoCardapio.TabIndex = 2;
             txtTextoCardapio.Text = "CARDAPIO";
             // 
-            // textBox1
+            // txtPesquisa
             // 
-            textBox1.Location = new Point(241, 26);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(363, 31);
-            textBox1.TabIndex = 6;
+            txtPesquisa.Location = new Point(241, 26);
+            txtPesquisa.Name = "txtPesquisa";
+            txtPesquisa.Size = new Size(370, 31);
+            txtPesquisa.TabIndex = 6;
+            txtPesquisa.TextChanged += txtPesquisa_TextChanged;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(btnAdicionar);
             groupBox1.Controls.Add(dataGridView1);
             groupBox1.Location = new Point(23, 83);
             groupBox1.Name = "groupBox1";
@@ -107,17 +95,17 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Cardapio";
             // 
-            // button1
+            // btnAdicionar
             // 
-            button1.BackColor = Color.Sienna;
-            button1.ForeColor = Color.BlanchedAlmond;
-            button1.Location = new Point(15, 27);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 5;
-            button1.Text = "+Item";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnAdicionar.BackColor = Color.Sienna;
+            btnAdicionar.ForeColor = Color.BlanchedAlmond;
+            btnAdicionar.Location = new Point(15, 27);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(112, 34);
+            btnAdicionar.TabIndex = 5;
+            btnAdicionar.Text = "+Item";
+            btnAdicionar.UseVisualStyleBackColor = false;
+            btnAdicionar.Click += btnAdicionar_Click;
             // 
             // dataGridView1
             // 
@@ -177,8 +165,7 @@
         private DataGridView dataGridView1;
         private Button BotaoEditar;
         private Button BotaoExcluir;
-        private Label Pesquisar;
-        private TextBox textBox1;
-        private Button button1;
+        private TextBox txtPesquisa;
+        private Button btnAdicionar;
     }
 }
