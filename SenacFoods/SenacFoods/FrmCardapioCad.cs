@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace SenacFoods
+﻿namespace SenacFoods
 {
     public partial class FrmCardapioCad : Form
     {
@@ -18,12 +8,12 @@ namespace SenacFoods
         }
 
 
-        private void btnSalvar_Click_1(object sender, EventArgs e)
+        private void btnSalvar_Click_1(object sender, EventArgs e) // evento do botão Salvar
         {
-            SalvarCardapio();
+            SalvarCardapio(); // chama o método para salvar o cardápio
         }
 
-        private void SalvarCardapio()
+        private void SalvarCardapio() // método para salvar o cardápio
         {
             // conectar
             using (var banco = new ComandaDBContext())

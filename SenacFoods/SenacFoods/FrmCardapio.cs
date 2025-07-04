@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace SenacFoods
+﻿namespace SenacFoods
 {
     public partial class FrmCardapio : Form
     {
@@ -16,7 +6,6 @@ namespace SenacFoods
         {
             InitializeComponent();
         }
-
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             //fechar a tela principal
@@ -26,7 +15,6 @@ namespace SenacFoods
             //exibe a tela de login
             frmPrincipal.Show();
         }
-
         private void FrmCardapio_Load(object sender, EventArgs e)
         {
             BuscarCardapio();
@@ -39,7 +27,7 @@ namespace SenacFoods
             {
                 //consulta a tabela CardapioItem
                 var cardapios = bd.CardapioItens.AsQueryable();
-                if(!string.IsNullOrWhiteSpace(txtPesquisa.Text))
+                if (!string.IsNullOrWhiteSpace(txtPesquisa.Text))
                 {
                     cardapios = cardapios.Where(c => c.Titulo.Contains(txtPesquisa.Text) ||
                                                      c.Descricao.Contains(txtPesquisa.Text));
@@ -61,5 +49,7 @@ namespace SenacFoods
             // chamar o metodo buscar cardapio
             BuscarCardapio();
         }
+
+
     }
 }

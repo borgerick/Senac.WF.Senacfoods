@@ -36,20 +36,22 @@
             btnFechar = new Button();
             btnMinimizar = new Button();
             lblMensagem = new Label();
+            btnMesa = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
             groupBox1.BackColor = Color.Black;
+            groupBox1.Controls.Add(btnMesa);
             groupBox1.Controls.Add(btnUsuario);
             groupBox1.Controls.Add(btnPedidoCozinha);
             groupBox1.Controls.Add(btnComanda);
             groupBox1.Controls.Add(btnCardapio);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(40, 112);
+            groupBox1.Location = new Point(40, 84);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(779, 251);
+            groupBox1.Size = new Size(779, 328);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Senac Foods";
@@ -63,7 +65,7 @@
             btnUsuario.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
             btnUsuario.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUsuario.ForeColor = Color.FromArgb(255, 128, 0);
-            btnUsuario.Location = new Point(600, 59);
+            btnUsuario.Location = new Point(600, 37);
             btnUsuario.Name = "btnUsuario";
             btnUsuario.Size = new Size(161, 150);
             btnUsuario.TabIndex = 0;
@@ -80,7 +82,7 @@
             btnPedidoCozinha.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
             btnPedidoCozinha.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPedidoCozinha.ForeColor = Color.FromArgb(255, 128, 0);
-            btnPedidoCozinha.Location = new Point(405, 59);
+            btnPedidoCozinha.Location = new Point(405, 37);
             btnPedidoCozinha.Name = "btnPedidoCozinha";
             btnPedidoCozinha.Size = new Size(161, 150);
             btnPedidoCozinha.TabIndex = 0;
@@ -97,7 +99,7 @@
             btnComanda.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
             btnComanda.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnComanda.ForeColor = Color.FromArgb(255, 128, 0);
-            btnComanda.Location = new Point(212, 59);
+            btnComanda.Location = new Point(212, 37);
             btnComanda.Name = "btnComanda";
             btnComanda.Size = new Size(161, 150);
             btnComanda.TabIndex = 0;
@@ -114,7 +116,7 @@
             btnCardapio.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
             btnCardapio.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCardapio.ForeColor = Color.FromArgb(255, 128, 0);
-            btnCardapio.Location = new Point(18, 59);
+            btnCardapio.Location = new Point(18, 37);
             btnCardapio.Name = "btnCardapio";
             btnCardapio.Size = new Size(161, 150);
             btnCardapio.TabIndex = 0;
@@ -167,6 +169,23 @@
             lblMensagem.TabIndex = 3;
             lblMensagem.Text = "lblMensagem";
             // 
+            // btnMesa
+            // 
+            btnMesa.BackColor = Color.FromArgb(224, 224, 224);
+            btnMesa.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 0);
+            btnMesa.FlatAppearance.BorderSize = 2;
+            btnMesa.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
+            btnMesa.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
+            btnMesa.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMesa.ForeColor = Color.FromArgb(255, 128, 0);
+            btnMesa.Location = new Point(212, 219);
+            btnMesa.Name = "btnMesa";
+            btnMesa.Size = new Size(354, 63);
+            btnMesa.TabIndex = 2;
+            btnMesa.Text = "Mesas";
+            btnMesa.UseVisualStyleBackColor = false;
+            btnMesa.Click += btnMesa_Click;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -196,5 +215,6 @@
         private Button btnFechar;
         private Button btnMinimizar;
         private Label lblMensagem;
+        private Button btnMesa;
     }
 }

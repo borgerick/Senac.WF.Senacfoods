@@ -65,5 +65,13 @@ namespace SenacFoods
             //Exibe a tela com estilo modal (não consegue sair sem clicar em alguma das opções)
             frmUsuario.ShowDialog();
         }
+
+        private void btnMesa_Click(object sender, EventArgs e)
+        {
+            //criar uma variavel
+            var frmMesa = new FrmMesa();
+            //Exibe a tela com estilo modal (não consegue sair sem clicar em alguma das opções)
+            frmMesa.ShowDialog();
+        }
     }
 }
