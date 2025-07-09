@@ -7,6 +7,10 @@
             InitializeComponent();
         }
 
+        public FrmCardapioCad(CardapioItem cardapioItem)
+        { 
+            InitializeComponent(); 
+        }
 
         private void btnSalvar_Click_1(object sender, EventArgs e) // evento do botão Salvar
         {

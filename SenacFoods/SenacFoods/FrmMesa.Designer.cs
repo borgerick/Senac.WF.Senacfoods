@@ -65,7 +65,6 @@
             btnVoltar.TabIndex = 2;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
-            btnVoltar.Click += btnVoltar_Click_1;
             // 
             // txtFrmMesa
             // 

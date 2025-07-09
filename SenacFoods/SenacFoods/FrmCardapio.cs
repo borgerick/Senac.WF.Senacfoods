@@ -2,6 +2,7 @@
 {
     public partial class FrmCardapio : Form
     {
+        CardapioItem? cardapioSelecionado;
         public FrmCardapio()
         {
             InitializeComponent();
@@ -50,6 +51,48 @@
             BuscarCardapio();
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                //pegar o cardapio selecionado
+                cardapioSelecionado = dataGridView1.Rows[e.RowIndex].DataBoundItem as CardapioItem;
+                btnEditar.Enabled =true;
+            }
+        }
 
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (cardapioSelecionado != null)
+            {
+                //abrir formulario de edicao
+                var banana = new FrmCardapioCad(cardapioSelecionado);
+                banana.ShowDialog();
+                BuscarCardapio();//atualizar lista de cardaio
+                cardapioSelecionado = null;
+            }
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (cardapioSelecionado != null)
+                using (var bd = new ComandaDBContext())
+
+                {
+                    bd.CardapioItens.Remove(cardapioSelecionado);
+                    bd.SaveChanges();
+
+                    MessageBox.Show("Cardápio excluído com sucesso!",
+                            "Sucesso",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    BuscarCardapio(); //atualizar lista de cardapio
+                    cardapioSelecionado = null;
+            }
+        }
+        
+
+       
     }
 }

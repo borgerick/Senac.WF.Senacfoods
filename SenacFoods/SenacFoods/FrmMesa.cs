@@ -28,10 +28,10 @@
                 //consulta a tabela Mesa
                 var mesas = bd.Mesas.AsQueryable();
 
-                int.TryParse(txtNumeroMesa.Text, out int numeromesa);
-                if (!string.IsNullOrWhiteSpace(txtPesquisa.Text))
+                int.TryParse(txtNumeroMesa.Text, out int numeromesa); // converte o texto do campo txtNumeroMesa para um inteiro
+                if (!string.IsNullOrWhiteSpace(txtPesquisa.Text)) 
                 {
-                    mesas = mesas.Where(c => c.NumeroMesa == numeromesa);
+                    mesas = mesas.Where(c => c.NumeroMesa == numeromesa); //
                 }
                 //popular o grid com a tabela consultada
                 dataGridView1.DataSource = mesas.ToList();
@@ -71,14 +71,6 @@
               
         }
 
-        private void btnVoltar_Click_1(object sender, EventArgs e)
-        {
-            //fechar a tela principal
-            Close();
-            //cri uma intancia de tela de login
-            var frmPrincipal = new FrmPrincipal("", "");
-            //exibe a tela de login
-            frmPrincipal.Show();
-        }
+
     }
 }
