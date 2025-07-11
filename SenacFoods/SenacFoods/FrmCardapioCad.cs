@@ -2,6 +2,10 @@
 {
     public partial class FrmCardapioCad : Form
     {
+        private CardapioItem _cardapioItem;
+
+        
+
         public FrmCardapioCad()
         {
             InitializeComponent();
@@ -9,12 +13,62 @@
 
         public FrmCardapioCad(CardapioItem cardapioItem)
         { 
-            InitializeComponent(); 
+            _cardapioItem = cardapioItem; // inicializa o cardápio selecionado
+            InitializeComponent();
+
+            CarregarDadosDaTela();
+
+        }
+        private void CarregarDadosDaTela() // método para carregar os dados do cardápio na tela
+        {
+            if (_cardapioItem != null)
+            {
+                txtTitulo.Text = _cardapioItem.Titulo;
+                txtDescricao.Text = _cardapioItem.Descricao;
+                textPreco.Text = _cardapioItem.Preco.ToString("F2");
+                chkPossuiPreparo.Checked = _cardapioItem.PossuiPreparo;
+            }
         }
 
         private void btnSalvar_Click_1(object sender, EventArgs e) // evento do botão Salvar
         {
-            SalvarCardapio(); // chama o método para salvar o cardápio
+            if (_cardapioItem == null)
+            {
+                SalvarCardapio();
+
+            }
+            else
+            {
+                AtualizarCardapio();
+            }
+        }
+
+
+        private void AtualizarCardapio()
+        {
+            using(var bd = new ComandaDBContext())
+            {
+                //captar os dados da tela
+                string titulo = txtTitulo.Text;
+                string descricao = txtDescricao.Text;
+                decimal.TryParse(textPreco.Text, out var preco);
+                bool possuiPreparo = chkPossuiPreparo.Checked;
+                //atualizar o cardapio
+                var cardapioItem = bd.CardapioItens.First(x => x.Id == _cardapioItem.Id);
+                cardapioItem.Titulo = titulo;
+                cardapioItem.Descricao = descricao;
+                cardapioItem.Preco = preco;
+                cardapioItem.PossuiPreparo = possuiPreparo;
+                //salvar as alterações no banco
+                bd.CardapioItens.Update(cardapioItem);
+                bd.SaveChanges();
+
+                MessageBox.Show("Cardápio excluído com sucesso!",
+                    "Sucesso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                this.Close();
+            }
         }
 
         private void SalvarCardapio() // método para salvar o cardápio
