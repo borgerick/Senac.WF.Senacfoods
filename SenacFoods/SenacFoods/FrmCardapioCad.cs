@@ -4,7 +4,7 @@
     {
         private CardapioItem _cardapioItem;
 
-        
+
 
         public FrmCardapioCad()
         {
@@ -12,7 +12,7 @@
         }
 
         public FrmCardapioCad(CardapioItem cardapioItem)
-        { 
+        {
             _cardapioItem = cardapioItem; // inicializa o cardápio selecionado
             InitializeComponent();
 
@@ -46,7 +46,7 @@
 
         private void AtualizarCardapio()
         {
-            using(var bd = new ComandaDBContext())
+            using (var bd = new ComandaDBContext())
             {
                 //captar os dados da tela
                 string titulo = txtTitulo.Text;
@@ -109,5 +109,6 @@
         {
             this.Close();
         }
+
     }
 }

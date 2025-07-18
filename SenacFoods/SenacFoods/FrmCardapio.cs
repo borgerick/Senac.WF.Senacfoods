@@ -42,13 +42,12 @@
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             new FrmCardapioCad().ShowDialog();
-            BuscarCardapio();
+            BuscarCardapio(); //atualizar lista de cardapio
         }
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
-            // chamar o metodo buscar cardapio
-            BuscarCardapio();
+            BuscarCardapio();//atualizar lista de cardapio com base na pesquisa
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

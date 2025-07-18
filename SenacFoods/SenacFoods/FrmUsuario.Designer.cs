@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            txtPesquisaUsuario = new TextBox();
             btnVoltar = new Button();
             txtTextoCardapio = new TextBox();
             groupBox1 = new GroupBox();
-            btnAdicionarUsuario = new Button();
-            dataGridView1 = new DataGridView();
-            txtPesquisaUsuario = new TextBox();
             btnExcluirUsuario = new Button();
+            btnAdicionarUsuario = new Button();
             btnEditarUsuario = new Button();
+            dataGridView1 = new DataGridView();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -52,6 +52,13 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(896, 77);
             panel1.TabIndex = 3;
+            // 
+            // txtPesquisaUsuario
+            // 
+            txtPesquisaUsuario.Location = new Point(245, 23);
+            txtPesquisaUsuario.Name = "txtPesquisaUsuario";
+            txtPesquisaUsuario.Size = new Size(370, 31);
+            txtPesquisaUsuario.TabIndex = 7;
             // 
             // btnVoltar
             // 
@@ -82,12 +89,21 @@
             groupBox1.Controls.Add(btnAdicionarUsuario);
             groupBox1.Controls.Add(btnEditarUsuario);
             groupBox1.Controls.Add(dataGridView1);
-            groupBox1.Location = new Point(28, 101);
+            groupBox1.Location = new Point(28, 83);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(843, 324);
+            groupBox1.Size = new Size(843, 352);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Usuarios";
+            // 
+            // btnExcluirUsuario
+            // 
+            btnExcluirUsuario.Location = new Point(134, 27);
+            btnExcluirUsuario.Name = "btnExcluirUsuario";
+            btnExcluirUsuario.Size = new Size(112, 34);
+            btnExcluirUsuario.TabIndex = 6;
+            btnExcluirUsuario.Text = "X Excluir";
+            btnExcluirUsuario.UseVisualStyleBackColor = true;
             // 
             // btnAdicionarUsuario
             // 
@@ -99,31 +115,7 @@
             btnAdicionarUsuario.TabIndex = 5;
             btnAdicionarUsuario.Text = "Adicionar";
             btnAdicionarUsuario.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(6, 67);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(827, 236);
-            dataGridView1.TabIndex = 0;
-            // 
-            // txtPesquisaUsuario
-            // 
-            txtPesquisaUsuario.Location = new Point(245, 23);
-            txtPesquisaUsuario.Name = "txtPesquisaUsuario";
-            txtPesquisaUsuario.Size = new Size(370, 31);
-            txtPesquisaUsuario.TabIndex = 7;
-            // 
-            // btnExcluirUsuario
-            // 
-            btnExcluirUsuario.Location = new Point(139, 27);
-            btnExcluirUsuario.Name = "btnExcluirUsuario";
-            btnExcluirUsuario.Size = new Size(112, 34);
-            btnExcluirUsuario.TabIndex = 6;
-            btnExcluirUsuario.Text = "X Excluir";
-            btnExcluirUsuario.UseVisualStyleBackColor = true;
+            btnAdicionarUsuario.Click += btnAdicionarUsuario_Click;
             // 
             // btnEditarUsuario
             // 
@@ -134,6 +126,15 @@
             btnEditarUsuario.TabIndex = 5;
             btnEditarUsuario.Text = "# Editar";
             btnEditarUsuario.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(7, 73);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(827, 269);
+            dataGridView1.TabIndex = 0;
             // 
             // FrmUsuario
             // 
