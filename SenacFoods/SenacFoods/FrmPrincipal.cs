@@ -60,9 +60,7 @@ namespace SenacFoods
 
         private void btnUsuario_Click(object sender, EventArgs e)
         {
-            //criar uma variavel
-            var frmUsuario = new FrmUsuario();
-            //Exibe a tela com estilo modal (não consegue sair sem clicar em alguma das opções)
+            var frmUsuario = new FrmUsuario();//criar uma variavel
             frmUsuario.ShowDialog();
         }
 

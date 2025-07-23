@@ -4,8 +4,6 @@
     {
         private CardapioItem _cardapioItem;
 
-
-
         public FrmCardapioCad()
         {
             InitializeComponent();
@@ -17,7 +15,6 @@
             InitializeComponent();
 
             CarregarDadosDaTela();
-
         }
         private void CarregarDadosDaTela() // método para carregar os dados do cardápio na tela
         {
@@ -42,7 +39,6 @@
                 AtualizarCardapio();
             }
         }
-
 
         private void AtualizarCardapio()
         {

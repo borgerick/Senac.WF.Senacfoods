@@ -180,6 +180,7 @@
             btnCancelarUsuario.TabIndex = 8;
             btnCancelarUsuario.Text = "X Cancelar";
             btnCancelarUsuario.UseVisualStyleBackColor = false;
+            btnCancelarUsuario.Click += btnCancelarUsuario_Click;
             // 
             // btnSalvarUsuario
             // 

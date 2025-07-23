@@ -23,8 +23,7 @@
 
         private void BuscarCardapio()
         {
-            //conectar ao banco de dados
-            using (var bd = new ComandaDBContext())
+            using (var bd = new ComandaDBContext()) //conectar ao banco de dados
             {
                 //consulta a tabela CardapioItem
                 var cardapios = bd.CardapioItens.AsQueryable();
@@ -44,7 +43,6 @@
             new FrmCardapioCad().ShowDialog();
             BuscarCardapio(); //atualizar lista de cardapio
         }
-
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
             BuscarCardapio();//atualizar lista de cardapio com base na pesquisa
@@ -64,9 +62,8 @@
         {
             if (cardapioSelecionado != null)
             {
-                //abrir formulario de edicao
-                var banana = new FrmCardapioCad(cardapioSelecionado);
-                banana.ShowDialog();
+                var banana = new FrmCardapioCad(cardapioSelecionado);//abrir formulario de edicao
+                banana.ShowDialog();// exibe o formulário de edição
                 BuscarCardapio();//atualizar lista de cardaio
                 cardapioSelecionado = null;
             }

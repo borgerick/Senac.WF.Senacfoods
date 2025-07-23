@@ -104,6 +104,7 @@
             btnExcluirUsuario.TabIndex = 6;
             btnExcluirUsuario.Text = "X Excluir";
             btnExcluirUsuario.UseVisualStyleBackColor = true;
+            btnExcluirUsuario.Click += btnExcluirUsuario_Click;
             // 
             // btnAdicionarUsuario
             // 
@@ -126,6 +127,7 @@
             btnEditarUsuario.TabIndex = 5;
             btnEditarUsuario.Text = "# Editar";
             btnEditarUsuario.UseVisualStyleBackColor = true;
+            btnEditarUsuario.Click += btnEditarUsuario_Click;
             // 
             // dataGridView1
             // 
