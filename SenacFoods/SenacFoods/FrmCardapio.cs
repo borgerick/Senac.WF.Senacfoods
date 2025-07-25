@@ -54,7 +54,7 @@
             {
                 //pegar o cardapio selecionado
                 cardapioSelecionado = dataGridView1.Rows[e.RowIndex].DataBoundItem as CardapioItem;
-                btnEditar.Enabled =true;
+                btnEditar.Enabled = true;
             }
         }
 
@@ -86,10 +86,9 @@
                             MessageBoxIcon.Information);
             BuscarCardapio(); //atualizar lista de cardapio
             cardapioSelecionado = null;
-        
-        }
-        
 
-       
+        }
+
+
     }
 }

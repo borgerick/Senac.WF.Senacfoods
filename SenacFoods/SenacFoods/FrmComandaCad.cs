@@ -25,13 +25,13 @@ namespace SenacFoods
         }
         private void CarregarDadosDaTelaComanda() // método para carregar os dados da comanda na tela
         {
-            if (_comandaItem != null)
-            {
-                txtNumeroComanda.Text = _comandaItem.NumeroComanda.ToString();
-                txtDataHoraAbertura.Text = _comandaItem.DataHoraAbertura.ToString("g");
-                txtValorTotal.Text = _comandaItem.ValorTotal.ToString("F2");
-                chkComandaFechada.Checked = _comandaItem.ComandaFechada;
-            }
+            //if (_comandaItem != null)
+            //{
+              ///  txtNumeroComanda.Text = _comandaItem.NumeroComanda.ToString();
+               // txtDataHoraAbertura.Text = _comandaItem.DataHoraAbertura.ToString("g");
+              //  txtValorTotal.Text = _comandaItem.ValorTotal.ToString("F2");
+              //  chkComandaFechada.Checked = _comandaItem.ComandaFechada;
+           // }
         }
     }
 }
