@@ -98,13 +98,6 @@
         }
 
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            comboBoxPerfilUsuario.Items.Add("Garçom");
-            comboBoxPerfilUsuario.Items.Add("Administrador");
-            comboBoxPerfilUsuario.Items.Add("Cozinha");
-        }
-
         private void SalvarUsuario()
         {
             using (var banco = new ComandaDBContext()) // conecta com banco

@@ -79,13 +79,14 @@
                     bd.CardapioItens.Remove(cardapioSelecionado);
                     bd.SaveChanges();
 
-                    MessageBox.Show("Cardápio excluído com sucesso!",
+                }
+            MessageBox.Show("Cardápio excluído com sucesso!",
                             "Sucesso",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
-                    BuscarCardapio(); //atualizar lista de cardapio
-                    cardapioSelecionado = null;
-            }
+            BuscarCardapio(); //atualizar lista de cardapio
+            cardapioSelecionado = null;
+        
         }
         
 

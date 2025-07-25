@@ -40,6 +40,7 @@
             label1 = new Label();
             txtNumeroMesa = new TextBox();
             label2 = new Label();
+            btnExcluir = new Button();
             panel1.SuspendLayout();
             Mesa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -65,6 +66,7 @@
             btnVoltar.TabIndex = 2;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // txtFrmMesa
             // 
@@ -84,6 +86,7 @@
             txtPesquisa.Name = "txtPesquisa";
             txtPesquisa.Size = new Size(370, 31);
             txtPesquisa.TabIndex = 6;
+            txtPesquisa.TextChanged += txtPesquisa_TextChanged;
             // 
             // Mesa
             // 
@@ -97,19 +100,23 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(27, 30);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(497, 275);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // btnEditarMesa
             // 
-            btnEditarMesa.BackColor = Color.FromArgb(255, 128, 128);
-            btnEditarMesa.Location = new Point(165, 366);
+            btnEditarMesa.BackColor = Color.FromArgb(255, 255, 128);
+            btnEditarMesa.Location = new Point(147, 367);
             btnEditarMesa.Name = "btnEditarMesa";
-            btnEditarMesa.Size = new Size(111, 39);
+            btnEditarMesa.Size = new Size(79, 39);
             btnEditarMesa.TabIndex = 10;
             btnEditarMesa.Text = "Editar";
             btnEditarMesa.UseVisualStyleBackColor = false;
@@ -117,7 +124,7 @@
             // btnAdicionarMesa
             // 
             btnAdicionarMesa.BackColor = Color.FromArgb(128, 255, 128);
-            btnAdicionarMesa.Location = new Point(48, 366);
+            btnAdicionarMesa.Location = new Point(12, 367);
             btnAdicionarMesa.Name = "btnAdicionarMesa";
             btnAdicionarMesa.Size = new Size(111, 39);
             btnAdicionarMesa.TabIndex = 9;
@@ -157,11 +164,23 @@
             label2.TabIndex = 13;
             label2.Text = "Numero Pessoas";
             // 
+            // btnExcluir
+            // 
+            btnExcluir.BackColor = Color.FromArgb(255, 128, 128);
+            btnExcluir.Location = new Point(232, 367);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(79, 39);
+            btnExcluir.TabIndex = 15;
+            btnExcluir.Text = "Excluir";
+            btnExcluir.UseVisualStyleBackColor = false;
+            btnExcluir.Click += btnExcluir_Click;
+            // 
             // FrmMesa
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(894, 447);
+            Controls.Add(btnExcluir);
             Controls.Add(txtNumeroMesa);
             Controls.Add(label2);
             Controls.Add(txtTituloMesa);
@@ -174,6 +193,8 @@
             Name = "FrmMesa";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmMesa";
+            Load += FrmMesa_Load;
+            Click += btnVoltar_Click;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             Mesa.ResumeLayout(false);
@@ -196,5 +217,6 @@
         private Label label1;
         private TextBox txtNumeroMesa;
         private Label label2;
+        private Button btnExcluir;
     }
 }

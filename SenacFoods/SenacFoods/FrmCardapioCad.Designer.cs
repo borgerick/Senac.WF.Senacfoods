@@ -50,7 +50,7 @@
             panel2.BackColor = Color.Sienna;
             panel2.Controls.Add(btnVoltar);
             panel2.Controls.Add(txtTextoCardapio);
-            panel2.Location = new Point(0, 0);
+            panel2.Location = new Point(0, -2);
             panel2.Name = "panel2";
             panel2.Size = new Size(896, 77);
             panel2.TabIndex = 2;

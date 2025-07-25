@@ -68,25 +68,36 @@
 
         private void btnExcluirUsuario_Click(object sender, EventArgs e)
         {
-            if(usuarioSelecionado != null)
+            if (usuarioSelecionado != null)
             {
-                var confirmacao = MessageBox.Show("Deseja realmente excluir o usuário selecionado?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    using (var bd = new ComandaDBContext())
-                    {
-                        bd.Usuarios.Remove(usuarioSelecionado); //remover o usuário selecionado
-                        bd.SaveChanges(); //salvar as alterações no banco de dados
-
-                        MessageBox.Show("Usuário excluído com sucesso!",
-                                   "Sucesso",
-                                   MessageBoxButtons.OK,
-                                   MessageBoxIcon.Information);
-
-                        BuscarUsuarios(); //atualizar lista de usuários após exclusão
-                        usuarioSelecionado = null; //limpar a seleção do usuário
-                    }
+                // var confirmacao = MessageBox.Show("Deseja realmente excluir o usuário selecionado?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                using (var bd = new ComandaDBContext())
+                {
+                    bd.Usuarios.Remove(usuarioSelecionado); //remover o usuário selecionado
+                    bd.SaveChanges(); //salvar as alterações no banco de dados
                 }
+                MessageBox.Show("Usuário excluído com sucesso!",
+                               "Sucesso",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information);
+
+                BuscarUsuarios(); //atualizar lista de usuários após exclusão
+                usuarioSelecionado = null; //limpar a seleção do usuário
+            }
+            else
+            {
+                MessageBox.Show("Nenhum usuário selecionado para exclusão.",
+                 "Aviso",
+                 MessageBoxButtons.OK,
+                 MessageBoxIcon.Warning);
             }
         }
-    
+
+        private void FrmUsuario_Load_1(object sender, EventArgs e)
+        { 
+                BuscarUsuarios(); //atualizar lista de usuários
+        }
+    }
+
 
 }
