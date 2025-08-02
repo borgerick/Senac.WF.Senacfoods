@@ -3,7 +3,6 @@
     public partial class FrmCardapioCad : Form
     {
         private CardapioItem _cardapioItem;
-
         public FrmCardapioCad()
         {
             InitializeComponent();
@@ -32,7 +31,6 @@
             if (_cardapioItem == null)
             {
                 SalvarCardapio();
-
             }
             else
             {
@@ -49,12 +47,20 @@
                 string descricao = txtDescricao.Text;
                 decimal.TryParse(textPreco.Text, out var preco);
                 bool possuiPreparo = chkPossuiPreparo.Checked;
+
+
+
+
                 //atualizar o cardapio
                 var cardapioItem = bd.CardapioItens.First(x => x.Id == _cardapioItem.Id);
                 cardapioItem.Titulo = titulo;
                 cardapioItem.Descricao = descricao;
                 cardapioItem.Preco = preco;
                 cardapioItem.PossuiPreparo = possuiPreparo;
+
+
+
+
                 //salvar as alterações no banco
                 bd.CardapioItens.Update(cardapioItem);
                 bd.SaveChanges();
@@ -69,14 +75,15 @@
 
         private void SalvarCardapio() // método para salvar o cardápio
         {
-            // conectar
-            using (var banco = new ComandaDBContext())
+            using (var banco = new ComandaDBContext()) // conectar
             {
                 // captar os dados da tela
                 string titulo = txtTitulo.Text;
                 string descricao = txtDescricao.Text;
                 decimal.TryParse(textPreco.Text, out decimal preco);
                 bool possuiPreparo = chkPossuiPreparo.Checked;
+
+
                 // criar um novo cardapio
                 var cardapio = new CardapioItem
                 {

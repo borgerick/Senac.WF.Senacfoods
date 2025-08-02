@@ -51,16 +51,18 @@
             panel2.Controls.Add(btnVoltar);
             panel2.Controls.Add(txtTextoCardapio);
             panel2.Location = new Point(0, -2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(896, 77);
+            panel2.Size = new Size(717, 62);
             panel2.TabIndex = 2;
             // 
             // btnVoltar
             // 
             btnVoltar.FlatAppearance.BorderSize = 0;
-            btnVoltar.Location = new Point(759, 23);
+            btnVoltar.Location = new Point(607, 18);
+            btnVoltar.Margin = new Padding(2);
             btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(112, 34);
+            btnVoltar.Size = new Size(90, 27);
             btnVoltar.TabIndex = 2;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = true;
@@ -72,18 +74,20 @@
             txtTextoCardapio.BorderStyle = BorderStyle.None;
             txtTextoCardapio.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTextoCardapio.ForeColor = Color.White;
-            txtTextoCardapio.Location = new Point(8, 21);
+            txtTextoCardapio.Location = new Point(6, 17);
+            txtTextoCardapio.Margin = new Padding(2);
             txtTextoCardapio.Name = "txtTextoCardapio";
-            txtTextoCardapio.Size = new Size(238, 32);
+            txtTextoCardapio.Size = new Size(207, 27);
             txtTextoCardapio.TabIndex = 2;
-            txtTextoCardapio.Text = "Cadastro de Cardapio";
+            txtTextoCardapio.Text = "CADASTRO CARDAPIO";
             // 
             // btnCancelar
             // 
             btnCancelar.BackColor = Color.FromArgb(255, 128, 128);
-            btnCancelar.Location = new Point(617, 195);
+            btnCancelar.Location = new Point(494, 156);
+            btnCancelar.Margin = new Padding(2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(203, 69);
+            btnCancelar.Size = new Size(162, 55);
             btnCancelar.TabIndex = 8;
             btnCancelar.Text = "X Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -92,9 +96,10 @@
             // btnSalvar
             // 
             btnSalvar.BackColor = Color.FromArgb(128, 255, 128);
-            btnSalvar.Location = new Point(617, 101);
+            btnSalvar.Location = new Point(494, 81);
+            btnSalvar.Margin = new Padding(2);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(203, 69);
+            btnSalvar.Size = new Size(162, 55);
             btnSalvar.TabIndex = 7;
             btnSalvar.Text = "# Salvar";
             btnSalvar.UseVisualStyleBackColor = false;
@@ -112,41 +117,47 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.ForeColor = Color.Black;
-            groupBox1.Location = new Point(23, 81);
+            groupBox1.Location = new Point(18, 65);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(848, 357);
+            groupBox1.Padding = new Padding(2);
+            groupBox1.Size = new Size(678, 286);
             groupBox1.TabIndex = 9;
             groupBox1.TabStop = false;
             groupBox1.Text = "btnSalvar";
             // 
             // txtDescricao
             // 
-            txtDescricao.Location = new Point(25, 129);
+            txtDescricao.Location = new Point(20, 103);
+            txtDescricao.Margin = new Padding(2);
             txtDescricao.Name = "txtDescricao";
-            txtDescricao.Size = new Size(527, 88);
+            txtDescricao.Size = new Size(422, 71);
             txtDescricao.TabIndex = 8;
             txtDescricao.Text = "";
             // 
             // textPreco
             // 
-            textPreco.Location = new Point(25, 257);
+            textPreco.Location = new Point(20, 206);
+            textPreco.Margin = new Padding(2);
             textPreco.Name = "textPreco";
-            textPreco.Size = new Size(527, 31);
+            textPreco.Size = new Size(422, 27);
             textPreco.TabIndex = 7;
             // 
             // txtTitulo
             // 
-            txtTitulo.Location = new Point(25, 63);
+            txtTitulo.Location = new Point(20, 50);
+            txtTitulo.Margin = new Padding(2);
             txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(527, 31);
+            txtTitulo.Size = new Size(422, 27);
             txtTitulo.TabIndex = 5;
             // 
             // chkPossuiPreparo
             // 
             chkPossuiPreparo.AutoSize = true;
-            chkPossuiPreparo.Location = new Point(25, 310);
+            chkPossuiPreparo.Location = new Point(20, 248);
+            chkPossuiPreparo.Margin = new Padding(2);
             chkPossuiPreparo.Name = "chkPossuiPreparo";
-            chkPossuiPreparo.Size = new Size(164, 29);
+            chkPossuiPreparo.Size = new Size(135, 24);
             chkPossuiPreparo.TabIndex = 4;
             chkPossuiPreparo.Text = "Possui preparo?";
             chkPossuiPreparo.UseVisualStyleBackColor = true;
@@ -154,40 +165,45 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(30, 229);
+            label3.Location = new Point(24, 183);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(60, 25);
+            label3.Size = new Size(49, 20);
             label3.TabIndex = 2;
             label3.Text = "Preço:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(29, 101);
+            label2.Location = new Point(23, 81);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(92, 25);
+            label2.Size = new Size(77, 20);
             label2.TabIndex = 1;
             label2.Text = "Descrição:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(29, 34);
+            label1.Location = new Point(23, 27);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(56, 25);
+            label1.Size = new Size(47, 20);
             label1.TabIndex = 0;
             label1.Text = "Titulo";
             // 
             // FrmCardapioCad
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(894, 450);
+            ClientSize = new Size(715, 360);
             Controls.Add(panel2);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
             Name = "FrmCardapioCad";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmCardapioCad";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

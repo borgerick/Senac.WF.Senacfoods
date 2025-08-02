@@ -31,12 +31,13 @@
             panel1 = new Panel();
             btnVoltar = new Button();
             txtTextoCardapio = new TextBox();
-            txtPesquisar = new TextBox();
             btnExcluir = new Button();
             btnEditar = new Button();
             groupBox1 = new GroupBox();
             btnComanda = new Button();
             dataGridView1 = new DataGridView();
+            txtPesquisar = new TextBox();
+            label2 = new Label();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -78,15 +79,6 @@
             txtTextoCardapio.TabIndex = 2;
             txtTextoCardapio.Text = "COMANDA";
             // 
-            // txtPesquisar
-            // 
-            txtPesquisar.Location = new Point(301, 14);
-            txtPesquisar.Margin = new Padding(2);
-            txtPesquisar.Name = "txtPesquisar";
-            txtPesquisar.Size = new Size(297, 27);
-            txtPesquisar.TabIndex = 8;
-            txtPesquisar.TextChanged += txtPesquisar_TextChanged;
-            // 
             // btnExcluir
             // 
             btnExcluir.BackColor = Color.FromArgb(255, 128, 128);
@@ -114,6 +106,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(txtPesquisar);
             groupBox1.Controls.Add(btnComanda);
             groupBox1.Controls.Add(dataGridView1);
@@ -129,12 +122,12 @@
             // 
             btnComanda.BackColor = Color.Green;
             btnComanda.ForeColor = Color.BlanchedAlmond;
-            btnComanda.Location = new Point(12, 14);
+            btnComanda.Location = new Point(12, 15);
             btnComanda.Margin = new Padding(2);
             btnComanda.Name = "btnComanda";
-            btnComanda.Size = new Size(94, 27);
+            btnComanda.Size = new Size(173, 27);
             btnComanda.TabIndex = 5;
-            btnComanda.Text = "+Comanda";
+            btnComanda.Text = "Adicionar Comanda";
             btnComanda.UseVisualStyleBackColor = false;
             btnComanda.Click += btnComanda_Click;
             // 
@@ -148,6 +141,25 @@
             dataGridView1.Size = new Size(662, 191);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
+            // 
+            // txtPesquisar
+            // 
+            txtPesquisar.Location = new Point(315, 15);
+            txtPesquisar.Margin = new Padding(2);
+            txtPesquisar.Name = "txtPesquisar";
+            txtPesquisar.Size = new Size(359, 27);
+            txtPesquisar.TabIndex = 8;
+            txtPesquisar.TextChanged += txtPesquisar_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(241, 18);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(70, 20);
+            label2.TabIndex = 10;
+            label2.Text = "Pesquisar";
             // 
             // FrmComanda
             // 
@@ -183,5 +195,6 @@
         private Button btnComanda;
         private DataGridView dataGridView1;
         private TextBox txtPesquisar;
+        private Label label2;
     }
 }

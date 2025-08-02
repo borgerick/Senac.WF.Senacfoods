@@ -9,12 +9,9 @@
         }
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            //fechar a tela principal
-            Close();
-            //cri uma intancia de tela de login
-            var frmPrincipal = new FrmPrincipal("", "");
-            //exibe a tela de login
-            frmPrincipal.Show();
+            Close();//fechar a tela principal
+            var frmPrincipal = new FrmPrincipal("", "");//cria uma intancia de tela de login
+            frmPrincipal.Show();//exibe a tela de login
         }
         private void FrmCardapio_Load(object sender, EventArgs e)
         {
@@ -32,12 +29,9 @@
                     cardapios = cardapios.Where(c => c.Titulo.Contains(txtPesquisa.Text) ||
                                                      c.Descricao.Contains(txtPesquisa.Text));
                 }
-                //popular o grid com a tabela consultada
-                dataGridView1.DataSource = cardapios.ToList();
+                dataGridView1.DataSource = cardapios.ToList();//popular o grid com a tabela consultada
             }
-
         }
-
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             new FrmCardapioCad().ShowDialog();
@@ -67,7 +61,6 @@
                 BuscarCardapio();//atualizar lista de cardaio
                 cardapioSelecionado = null;
             }
-
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -76,8 +69,8 @@
                 using (var bd = new ComandaDBContext())
 
                 {
-                    bd.CardapioItens.Remove(cardapioSelecionado);
-                    bd.SaveChanges();
+                    bd.CardapioItens.Remove(cardapioSelecionado);//remover o usuário selecionado
+                    bd.SaveChanges();//salvar as alterações no banco de dados
 
                 }
             MessageBox.Show("Cardápio excluído com sucesso!",
@@ -86,9 +79,6 @@
                             MessageBoxIcon.Information);
             BuscarCardapio(); //atualizar lista de cardapio
             cardapioSelecionado = null;
-
         }
-
-
     }
 }
