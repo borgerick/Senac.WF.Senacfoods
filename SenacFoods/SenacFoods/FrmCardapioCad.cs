@@ -66,9 +66,9 @@
                 bd.SaveChanges();
 
                 MessageBox.Show("Cardápio excluído com sucesso!",
-                    "Sucesso",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                                "Sucesso",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
                 this.Close();
             }
         }
@@ -97,9 +97,9 @@
                 banco.SaveChanges();
             }
             MessageBox.Show("Cardápio salvo com sucesso!",
-                "Sucesso",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+                            "Sucesso",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
             this.Close();
         }
 

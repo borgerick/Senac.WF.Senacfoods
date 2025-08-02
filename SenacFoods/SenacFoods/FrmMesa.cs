@@ -1,86 +1,119 @@
 ﻿namespace SenacFoods
 {
     public partial class FrmMesa : Form
-
     {
         Mesa? SelecionarMesa;
+
         public FrmMesa()
         {
             InitializeComponent();
         }
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            //fechar a tela principal
-            Close();
-            //cri uma intancia de tela de login
-            var frmPrincipal = new FrmPrincipal("", "");
-            //exibe a tela de login
-            frmPrincipal.Show();
-        }
+
         private void FrmMesa_Load(object sender, EventArgs e)
         {
+            CarregarPerfis();
             BuscarMesa();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            Close();
+            var frmPrincipal = new FrmPrincipal("", "");
+            frmPrincipal.Show();
         }
 
         private void BuscarMesa()
         {
-            //conectar ao banco de dados
             using (var bd = new ComandaDBContext())
             {
-                //consulta a tabela Mesa
                 var mesas = bd.Mesas.AsQueryable();
 
-                int.TryParse(txtNumeroMesa.Text, out int numeromesa); // converte o texto do campo txtNumeroMesa para um inteiro
+                int.TryParse(txtNumMesa.Text, out int numeromesa);
                 if (!string.IsNullOrWhiteSpace(txtPesquisa.Text))
                 {
-                    mesas = mesas.Where(c => c.NumeroMesa == numeromesa); //
+                    mesas = mesas.Where(c => c.NumeroMesa == numeromesa);
                 }
-                //popular o grid com a tabela consultada
+
                 dataGridView1.DataSource = mesas.ToList();
             }
         }
 
         private void btnAdicionarMesa_Click(object sender, EventArgs e)
         {
-            SalvarMesa(); // chama o método para salvar a mesa
-            BuscarMesa(); // chama o método para buscar as mesas atualizadas
+            SalvarMesa();
+            BuscarMesa();
         }
 
-        private void SalvarMesa() // método para salvar o cardápio
+        private void SalvarMesa()
         {
-            // conectar
+            if (!ValidarCampos())
+                return;
+
+            int.TryParse(txtMesa.Text, out int numeroMesa);
+            int.TryParse(txtNumMesa.Text, out int numPessoasMesa);
+            string situacaoTexto = comboBoxSitMesa.Text;
+            int situacaoMesa = situacaoTexto == "livre" ? 0 :
+                               situacaoTexto == "ocupada" ? 1 : -1;
+
             using (var banco = new ComandaDBContext())
             {
-                // captar os dados da tela
-
-                int.TryParse(txtNumeroMesa.Text, out int numeromesa);
-
-                // criar um novo cardapio   
-                var mesa = new Mesa
+                if (SelecionarMesa == null)
                 {
+                    var novaMesa = new Mesa
+                    {
+                        NumeroMesa = numeroMesa,
+                        NumPessoasMesa = numPessoasMesa,
+                        SituacaoMesa = situacaoMesa
+                    };
 
-                    NumeroMesa = numeromesa
-                };
-                // adicionar o cardapio
-                banco.Mesas.Add(mesa);
+                    banco.Mesas.Add(novaMesa);
+                }
+                else
+                {
+                    var mesa = banco.Mesas.First(x => x.Id == SelecionarMesa.Id);
+                    mesa.NumeroMesa = numeroMesa;
+                    mesa.NumPessoasMesa = numPessoasMesa;
+                    mesa.SituacaoMesa = situacaoMesa;
+
+                    banco.Mesas.Update(mesa);
+                }
+
                 banco.SaveChanges();
             }
-            MessageBox.Show("Mesa salva!",
-                "Sucesso",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-            this.Close();
 
+            MessageBox.Show("Mesa salva com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            LimparCampos();
+            SelecionarMesa = null;
+            BuscarMesa();
         }
 
-        private void btnVoltar_Click_1(object sender, EventArgs e)
+        private bool ValidarCampos()
         {
-            //fechar a tela principal
-            Close();
-            //cri uma intancia de tela de login
-            var frmPrincipal = new FrmPrincipal("", "");
-            //exibe a tela de login
-            frmPrincipal.Show();
+            string mesa = txtMesa.Text.Trim();
+            string numpessoasmesa = txtNumMesa.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(mesa))
+            {
+                MessageBox.Show("O campo MESA é obrigatório.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMesa.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(numpessoasmesa))
+            {
+                MessageBox.Show("O campo NUMERO PESSOAS é obrigatório.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNumMesa.Focus();
+                return false;
+            }
+            return true;
+        }
+
+        private void LimparCampos()
+        {
+            txtMesa.Clear();
+            txtNumMesa.Clear();
+            comboBoxSitMesa.SelectedIndex = 0;
         }
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
@@ -92,38 +125,65 @@
         {
             if (SelecionarMesa != null)
             {
-                // var confirmacao = MessageBox.Show("Deseja realmente excluir o usuário selecionado?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                using (var bd = new ComandaDBContext())
+                DialogResult resultado = MessageBox.Show("Deseja excluir essa mesa?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
                 {
-                    bd.Mesas.Remove(SelecionarMesa); //remover o usuário selecionado
-                    bd.SaveChanges(); //salvar as alterações no banco de dados
-                }
-                MessageBox.Show("Usuário excluído com sucesso!",
-                               "Sucesso",
-                               MessageBoxButtons.OK,
-                               MessageBoxIcon.Information);
+                    using (var bd = new ComandaDBContext())
+                    {
+                        bd.Mesas.Remove(SelecionarMesa);
+                        bd.SaveChanges();
+                    }
+                    MessageBox.Show("Mesa excluída com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                BuscarMesa(); //atualizar lista de usuários após exclusão
-                SelecionarMesa = null; //limpar a seleção do usuário
+                    BuscarMesa();
+                    SelecionarMesa = null;
+                    LimparCampos();
+                }
             }
             else
             {
-                MessageBox.Show("Nenhum usuário selecionado para exclusão.",
-                 "Aviso",
-                 MessageBoxButtons.OK,
-                 MessageBoxIcon.Warning);
+                MessageBox.Show("Nenhuma mesa selecionada para exclusão.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
-                SelecionarMesa = dataGridView1.Rows[e.RowIndex].DataBoundItem as Mesa;//pegar a mesa selecionada
-                btnEditarMesa.Enabled = true; //habilitar o botão de editar mesa
+                SelecionarMesa = dataGridView1.Rows[e.RowIndex].DataBoundItem as Mesa;
+
+                if (SelecionarMesa != null)
+                {
+                    txtMesa.Text = SelecionarMesa.NumeroMesa.ToString();
+                    txtNumMesa.Text = SelecionarMesa.NumPessoasMesa.ToString();
+
+                    switch (SelecionarMesa.SituacaoMesa)
+                    {
+                        case 0: comboBoxSitMesa.Text = "livre"; break;
+                        case 1: comboBoxSitMesa.Text = "ocupada"; break;
+                        default: comboBoxSitMesa.Text = "-"; break;
+                    }
+
+                    btnEditarMesa.Enabled = true;
+                }
             }
-            
+        }
+
+        private void CarregarPerfis()
+        {
+            comboBoxSitMesa.Items.Clear();
+            comboBoxSitMesa.Items.Add("livre");
+            comboBoxSitMesa.Items.Add("ocupada");
+            comboBoxSitMesa.Items.Add("-");
+            comboBoxSitMesa.SelectedIndex = 0;
+        }
+
+        private void btnEditarMesa_Click(object sender, EventArgs e)
+        {
+            if (SelecionarMesa != null)
+            {
+                MessageBox.Show("Edite os dados da mesa nos campos acima e clique em 'Salvar'.", "Editar Mesa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
-

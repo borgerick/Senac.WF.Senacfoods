@@ -49,7 +49,7 @@
             panel1.Controls.Add(txtTextoCardapio);
             panel1.Controls.Add(txtPesquisa);
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(717, 62);
             panel1.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             btnVoltar.FlatAppearance.BorderSize = 0;
             btnVoltar.Location = new Point(607, 18);
-            btnVoltar.Margin = new Padding(2, 2, 2, 2);
+            btnVoltar.Margin = new Padding(2);
             btnVoltar.Name = "btnVoltar";
             btnVoltar.Size = new Size(90, 27);
             btnVoltar.TabIndex = 2;
@@ -73,7 +73,7 @@
             txtTextoCardapio.Font = new Font("Segoe UI", 19F);
             txtTextoCardapio.ForeColor = Color.White;
             txtTextoCardapio.Location = new Point(10, 10);
-            txtTextoCardapio.Margin = new Padding(2, 2, 2, 2);
+            txtTextoCardapio.Margin = new Padding(2);
             txtTextoCardapio.Name = "txtTextoCardapio";
             txtTextoCardapio.Size = new Size(182, 43);
             txtTextoCardapio.TabIndex = 2;
@@ -82,7 +82,7 @@
             // txtPesquisa
             // 
             txtPesquisa.Location = new Point(193, 21);
-            txtPesquisa.Margin = new Padding(2, 2, 2, 2);
+            txtPesquisa.Margin = new Padding(2);
             txtPesquisa.Name = "txtPesquisa";
             txtPesquisa.Size = new Size(297, 27);
             txtPesquisa.TabIndex = 6;
@@ -93,9 +93,9 @@
             groupBox1.Controls.Add(btnAdicionar);
             groupBox1.Controls.Add(dataGridView1);
             groupBox1.Location = new Point(18, 66);
-            groupBox1.Margin = new Padding(2, 2, 2, 2);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Padding = new Padding(2);
             groupBox1.Size = new Size(678, 250);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
@@ -106,7 +106,7 @@
             btnAdicionar.BackColor = Color.Sienna;
             btnAdicionar.ForeColor = Color.BlanchedAlmond;
             btnAdicionar.Location = new Point(12, 22);
-            btnAdicionar.Margin = new Padding(2, 2, 2, 2);
+            btnAdicionar.Margin = new Padding(2);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(90, 27);
             btnAdicionar.TabIndex = 5;
@@ -116,21 +116,23 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 54);
-            dataGridView1.Margin = new Padding(2, 2, 2, 2);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(662, 191);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
-
             // 
             // btnEditar
             // 
             btnEditar.Enabled = false;
             btnEditar.Location = new Point(602, 321);
-            btnEditar.Margin = new Padding(2, 2, 2, 2);
+            btnEditar.Margin = new Padding(2);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(90, 27);
             btnEditar.TabIndex = 3;
@@ -141,7 +143,7 @@
             // btnExcluir
             // 
             btnExcluir.Location = new Point(508, 321);
-            btnExcluir.Margin = new Padding(2, 2, 2, 2);
+            btnExcluir.Margin = new Padding(2);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(90, 27);
             btnExcluir.TabIndex = 4;
@@ -160,7 +162,7 @@
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "FrmCardapio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrnCardapio";

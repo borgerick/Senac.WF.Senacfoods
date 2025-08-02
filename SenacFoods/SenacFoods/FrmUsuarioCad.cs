@@ -2,7 +2,7 @@
 {
     public partial class FrmUsuarioCad : Form
     {
-        private Usuario _usuarioItem; 
+        private Usuario _usuarioItem;
         public FrmUsuarioCad()
         {
             InitializeComponent();
@@ -10,12 +10,12 @@
 
         public FrmUsuarioCad(Usuario usuarioItem)
         {
-            _usuarioItem = usuarioItem; 
+            _usuarioItem = usuarioItem;
             InitializeComponent();
 
             CarregarDadosDaTela();
         }
-        private void CarregarDadosDaTela() 
+        private void CarregarDadosDaTela()
         {
             if (_usuarioItem == null)
             {
@@ -56,7 +56,7 @@
                 string ddd = txtDDD.Text;
                 string celular = txtCelular.Text;
                 string tipousuario = comboBoxPerfilUsuario.Text;
-                string nomeusuario = txtUsuario.Text;                
+                string nomeusuario = txtUsuario.Text;
                 string validasenha = txtValidaSenha.Text;
                 // Cria um novo usuário
                 var Usuario = bd.Usuarios.First(x => x.Id == _usuarioItem.Id);
@@ -66,8 +66,8 @@
                 Usuario.Ativo = ativo;
                 Usuario.DDD = ddd;
                 Usuario.Celular = celular;
-                Usuario.TipoUsuario = tipousuario;                
-                Usuario.NomeUsuario = nomeusuario;                
+                Usuario.TipoUsuario = tipousuario;
+                Usuario.NomeUsuario = nomeusuario;
                 Usuario.ValidaSenha = validasenha;
 
                 // Adiciona o usuário ao banco de dados
@@ -85,8 +85,8 @@
         private void SalvarUsuario()
         {
             if (!ValidarCampos()) // Verifica se os campos estão preenchidos corretamente
-                return; 
-            
+                return;
+
             using (var banco = new ComandaDBContext()) // conecta com banco
             {
                 string nome = txtNomeCompleto.Text;
@@ -116,10 +116,10 @@
                 banco.Usuarios.Add(usuario);
                 banco.SaveChanges();
             }
-             MessageBox.Show("Usuário cadastrado!",
-                "Sucesso",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            MessageBox.Show("Usuário cadastrado!",
+               "Sucesso",
+               MessageBoxButtons.OK,
+               MessageBoxIcon.Information);
             this.Close();
         }
         private bool ValidarCampos()
@@ -131,9 +131,9 @@
 
             if (string.IsNullOrWhiteSpace(nome))
             {
-                MessageBox.Show("O campo Nome é obrigatório.", 
-                                "Atenção", 
-                                MessageBoxButtons.OK, 
+                MessageBox.Show("O campo Nome é obrigatório.",
+                                "Atenção",
+                                MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 txtNomeCompleto.Focus();
                 return false;
@@ -141,9 +141,9 @@
 
             if (string.IsNullOrWhiteSpace(email))
             {
-                MessageBox.Show("O campo E-mail é obrigatório.", 
-                                "Atenção", 
-                                MessageBoxButtons.OK, 
+                MessageBox.Show("O campo E-mail é obrigatório.",
+                                "Atenção",
+                                MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 txtEmail.Focus();
                 return false;
@@ -151,9 +151,9 @@
 
             if (senha.Length < 6)
             {
-                MessageBox.Show("A senha deve conter no mínimo 6 caracteres.", 
-                                "Atenção", 
-                                MessageBoxButtons.OK, 
+                MessageBox.Show("A senha deve conter no mínimo 6 caracteres.",
+                                "Atenção",
+                                MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 txtSenha.Focus();
                 return false;
@@ -162,8 +162,8 @@
             if (senha != validaSenha)
             {
                 MessageBox.Show("As senhas não coincidem.",
-                                "Atenção", 
-                                MessageBoxButtons.OK, 
+                                "Atenção",
+                                MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 txtValidaSenha.Focus();
                 return false;
@@ -181,6 +181,21 @@
             this.Close();
         }
 
+        private void FrmUsuarioCad_Load(object sender, EventArgs e)
+        {
+            CarregarPerfis();
+        }
+
+        private void CarregarPerfis()
+        {
+            comboBoxPerfilUsuario.Items.Clear(); // limpa qualquer valor anterior
+
+            comboBoxPerfilUsuario.Items.Add("admin");
+            comboBoxPerfilUsuario.Items.Add("garcom");
+            comboBoxPerfilUsuario.Items.Add("funcionario");
+
+            comboBoxPerfilUsuario.SelectedIndex = 0; // seleciona o primeiro por padrão
+        }
     }
 }
 

@@ -316,6 +316,7 @@
             Name = "FrmUsuarioCad";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmUsuarioCad";
+            Load += FrmUsuarioCad_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel1.ResumeLayout(false);
