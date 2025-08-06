@@ -20,7 +20,7 @@ namespace SenacFoods
             base.OnConfiguring(optionsBuilder);
         }
         public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<CardapioItem> CardapioItens { get; set; }
+        public DbSet<Mesatem> CardapioItens { get; set; }
         public DbSet<Mesa> Mesas { get; set; }
         public DbSet<Comanda> Comandas { get; set; }
         public Dbset<ComandaItem> ComandaItens { get; set; }

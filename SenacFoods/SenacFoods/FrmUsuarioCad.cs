@@ -17,7 +17,7 @@
         }
         private void CarregarDadosDaTela()
         {
-            if (_usuarioItem == null)
+            if (_usuarioItem != null)
             {
                 txtNomeCompleto.Text = _usuarioItem.Nome;
                 txtDDD.Text = _usuarioItem.DDD;
@@ -26,7 +26,7 @@
                 txtSenha.Text = _usuarioItem.Senha;
                 txtValidaSenha.Text = _usuarioItem.ValidaSenha;
                 comboBoxPerfilUsuario.Text = _usuarioItem.TipoUsuario;
-                //string ativo = chkUsuarioAtivo;
+                chkUsuarioAtivo.Checked = _usuarioItem.Ativo;
             }
         }
         private void btnSalvarUsuario_Click(object sender, EventArgs e) // evento do botão Salvar Usuário

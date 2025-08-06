@@ -1,59 +1,69 @@
-﻿    namespace SenacFoods
+﻿namespace SenacFoods
 {
     public partial class FrmMesaCad : Form
     {
-        private Mesatem _mesaItem;
-        public FrmMesaCad()
+        private Mesatem _cardapioItem;
+        public FrmCardapioCad()
         {
             InitializeComponent();
         }
 
-        public FrmMesaCad(Mesatem cardapioItem)
+        public FrmCardapioCad(Mesatem cardapioItem)
         {
-            _mesaItem = cardapioItem; // inicializa o cardápio selecionado
+            _cardapioItem = cardapioItem; // inicializa o cardápio selecionado
             InitializeComponent();
 
             CarregarDadosDaTela();
         }
         private void CarregarDadosDaTela() // método para carregar os dados do cardápio na tela
         {
-            if (_mesaItem != null)
+            if (_cardapioItem != null)
             {
-                txtTitulo.Text = _mesaItem.Titulo;
+                txtTitulo.Text = _cardapioItem.Titulo;
+                txtDescricao.Text = _cardapioItem.Descricao;
+                textPreco.Text = _cardapioItem.Preco.ToString("F2");
+                chkPossuiPreparo.Checked = _cardapioItem.PossuiPreparo;
             }
         }
 
         private void btnSalvar_Click_1(object sender, EventArgs e) // evento do botão Salvar
         {
-            if (_mesaItem == null)
+            if (_cardapioItem == null)
             {
-                SalvarMesa();
+                SalvarCardapio();
             }
             else
             {
-                AtualizarMesa();
+                AtualizarCardapio();
             }
         }
 
-        private void AtualizarMesa()
+        private void AtualizarCardapio()
         {
             using (var bd = new ComandaDBContext())
             {
-
+                //captar os dados da tela
                 string titulo = txtTitulo.Text;
                 string descricao = txtDescricao.Text;
-                int.TryParse(textPreco.Text, out var preco);
+                decimal.TryParse(textPreco.Text, out var preco);
                 bool possuiPreparo = chkPossuiPreparo.Checked;
 
 
-                var mesas = bd.CardapioItens.First(x => x.Id == _mesaItem.Id);
-                mesas.Titulo = titulo;
 
 
-                  
-                bd.CardapioItens.Update(mesas);
+                //atualizar o cardapio
+                var cardapioItem = bd.CardapioItens.First(x => x.Id == _cardapioItem.Id);
+                cardapioItem.Titulo = titulo;
+                cardapioItem.Descricao = descricao;
+                cardapioItem.Preco = preco;
+                cardapioItem.PossuiPreparo = possuiPreparo;
+
+
+
+
+                //salvar as alterações no banco
+                bd.CardapioItens.Update(cardapioItem);
                 bd.SaveChanges();
-
 
                 MessageBox.Show("Cardápio excluído com sucesso!",
                                 "Sucesso",
@@ -63,7 +73,7 @@
             }
         }
 
-        private void SalvarMesa() // método para salvar o cardápio
+        private void SalvarCardapio() // método para salvar o cardápio
         {
             using (var banco = new ComandaDBContext()) // conectar
             {
@@ -75,12 +85,15 @@
 
 
                 // criar um novo cardapio
-                var mesa = new Mesatem
+                var cardapio = new Mesatem
                 {
                     Descricao = descricao,
+                    Titulo = titulo,
+                    Preco = preco,
+                    PossuiPreparo = possuiPreparo
                 };
                 // adicionar o cardapio
-                banco.CardapioItens.Add(mesa);
+                banco.CardapioItens.Add(cardapio);
                 banco.SaveChanges();
             }
             MessageBox.Show("Cardápio salvo com sucesso!",

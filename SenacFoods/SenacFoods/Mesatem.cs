@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SenacFoods
 {
-    public class CardapioItem
+    public class Mesatem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

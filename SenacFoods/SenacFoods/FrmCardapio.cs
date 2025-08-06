@@ -2,7 +2,7 @@
 {
     public partial class FrmCardapio : Form
     {
-        CardapioItem? cardapioSelecionado;
+        Mesatem? cardapioSelecionado;
         public FrmCardapio()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@
         }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            new FrmCardapioCad().ShowDialog();
+            new FrmMesaCad().ShowDialog();
             BuscarCardapio(); //atualizar lista de cardapio
         }
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
@@ -47,7 +47,7 @@
             if (e.RowIndex >= 0)
             {
                 //pegar o cardapio selecionado
-                cardapioSelecionado = dataGridView1.Rows[e.RowIndex].DataBoundItem as CardapioItem;
+                cardapioSelecionado = dataGridView1.Rows[e.RowIndex].DataBoundItem as Mesatem;
                 btnEditar.Enabled = true;
             }
         }
@@ -56,7 +56,7 @@
         {
             if (cardapioSelecionado != null)
             {
-                var banana = new FrmCardapioCad(cardapioSelecionado);//abrir formulario de edicao
+                var banana = new FrmMesaCad(cardapioSelecionado);//abrir formulario de edicao
                 banana.ShowDialog();// exibe o formulário de edição
                 BuscarCardapio();//atualizar lista de cardaio
                 cardapioSelecionado = null;
